@@ -1,18 +1,6 @@
-import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import Home from './Home';
 
-import Blog from './containers/Blog/Blog';
-
-class App extends Component {
-  render () {
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Blog />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
-
-export default App;
+export default () => {
+  return <Home name="Alligator" />;
+};
