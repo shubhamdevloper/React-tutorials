@@ -1,0 +1,265 @@
+<div class="applynow-main-container">
+    <div class="back-button">
+        <a routerLink="/careers">&larr;Back</a>
+    </div>
+    <div class="applynow-heading">
+        Apply now
+    </div>
+    <div class="applynow-sub-container">
+      <div class="applynow-form">
+        <div *ngIf="!successFormSubmission">
+          <!-- <div class="contact-orbis-row">
+            <div class="contact-us-heading">
+              Let's start a conversation
+            </div>
+          </div> -->
+          <form
+            #f="ngForm"
+            [formGroup]="contactUsForm"
+            class="apply-form"
+            method="post" 
+            enctype="multipart/form-data"
+          >
+            <div class="apply-orbis-row apply-fields">
+              <div class="apply-orbis-item">
+                <div class="apply-field">
+                  <label for="name"
+                    >Your name<span class="star-require">*</span></label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="user"
+                    formControlName="userName"
+                    name="userName"
+                    placeholder="Enter the name"
+                  />
+                  <div class="apply-orbis-item">
+                    <span
+                      *ngIf="
+                        !contactUsForm.get('userName').valid &&
+                        contactUsForm.get('userName').touched
+                      "
+                      class="error-msg"
+                    >
+                      Please enter your name
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="apply-orbis-item">
+                <div class="apply-field apply-role-field">
+                  <label for="company"
+                    > Role you’re applying for <span class="star-require">*</span></label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    formControlName="companyName"
+                    placeholder="Select role"
+                  />
+                  <div class="apply-orbis-item">
+                    <span
+                      *ngIf="
+                        !contactUsForm.get('companyName').valid &&
+                        contactUsForm.get('companyName').touched
+                      "
+                      class="error-msg"
+                    >
+                      Please enter your role
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="apply-orbis-row apply-ind-rows">
+              <div class="apply-orbis-item">
+                <div class="apply-field">
+                  <label for="email"
+                    >Your Business Email<span class="star-require"
+                      >*</span
+                    ></label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    formControlName="businessEmail"
+                    placeholder="Business email"
+                  />
+                  <div class="apply-orbis-item">
+                    <span
+                      *ngIf="
+                        !contactUsForm.get('businessEmail').valid &&
+                        contactUsForm.get('businessEmail').touched
+                      "
+                      class="error-msg"
+                    >
+                      Please enter your company name
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="apply-orbis-item">
+                <div class="apply-field apply-phone-no-field">
+                  <label for="phone"
+                    >Your phone number<span class="star-require">*</span></label
+                  >
+                </div>
+                <div>
+                  <ngx-intl-tel-input
+                    [cssClass]="'custom'"
+                    [preferredCountries]="[
+                      CountryISO.UnitedStates,
+                      CountryISO.UnitedKingdom
+                    ]"
+                    [enableAutoCountrySelect]="false"
+                    [enablePlaceholder]="true"
+                    [searchCountryFlag]="false"
+                    [searchCountryField]="[
+                      SearchCountryField.Iso2,
+                      SearchCountryField.Name
+                    ]"
+                    [selectFirstCountry]="false"
+                    [selectedCountryISO]="CountryISO.UnitedStates"
+                    [maxLength]="12"
+                    [phoneValidation]="true"
+                    [separateDialCode]="separateDialCode"
+                    formControlName="phone"
+                    name="phone"
+                    id="phone"
+                  >
+                  </ngx-intl-tel-input>
+                  <div class="apply-orbis-item error-msg">
+                    <span
+                      *ngIf="
+                        !contactUsForm.get('phone').valid &&
+                        contactUsForm.get('phone').touched
+                      "
+                    >
+                      Please fill out the complete number
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <form  method="post" enctype="multipart/form-data"> -->
+              <!-- <div class="row"> -->
+                <!-- <div class="col-md-4"> -->
+              <input class="form-control-file" type="file" accept=".pdf"  (change)="onFileChanged($event)"  id="pdf"
+              name="pdf"
+              value="Upload Resume"
+              formControlName="pdfName"
+              #fileInput>
+              <div class="apply-orbis-item">
+                <span
+                  *ngIf="
+                  !contactUsForm.get('companyName').valid &&
+                    contactUsForm.get('pdfName').touched
+                  "
+                  class="error-msg"
+                >
+                  Please select file
+                </span>
+              </div>
+             <!-- </div> -->
+              <!-- <div class="col-md-8"> -->
+            
+              <!-- <button (click)="onUpload()">Upload!</button></div> -->
+            <!-- </div> -->
+            <!-- </form> -->
+
+
+            <!-- <div class="contact-orbis-row contact-us-ind-rows">
+              <div class="contact-orbis-item">
+                <div
+                  class="contact-orbis-row contact-field contact-question-customer"
+                >
+                  <label for="message"
+                    >What Products or Services Are You Interested In?</label
+                  >
+                </div>
+                <div class="contact-orbis-row">
+                  <textarea
+                    name="message"
+                    placeholder="Add description"
+                    formControlName="customerQuestion"
+                  ></textarea>
+                </div>
+                <div class="contact-orbis-item error-message">
+                  <span
+                    *ngIf="
+                      !contactUsForm.get('customerQuestion').valid &&
+                      contactUsForm.get('customerQuestion').touched
+                    "
+                  >
+                    Please fill out you questions
+                  </span>
+                </div>-->
+
+                <!-- <div class="contact-orbis-row recaptcha-parent">
+                  <re-captcha (resolved)="resolved($event)" 
+                  siteKey="6LcDnAAVAAAAAGSey5kKfzLmggt00Hio1rHk4o8s
+                  ">  
+                  </re-captcha>
+                </div> -->
+            
+                  <!-- <div class="col-md-6"> -->
+                    <div class="contact-orbis-row recaptcha-parent">
+                    <re-captcha (resolved)="resolved($event)" siteKey="6LcDnAAVAAAAAGSey5kKfzLmggt00Hio1rHk4o8s
+                    " id="captcha" name="captcha" formControlName="captchaName" ></re-captcha>
+                    </div>
+                <!-- </div> -->
+                <div class="apply-orbis-item">
+                  <span
+                    *ngIf="
+                      !contactUsForm.get('captchaName').valid &&
+                      contactUsForm.get('captchaName').touched
+                    "
+                    class="error-msg"
+                  >
+                    Please select captcha
+                  </span>
+                </div>
+              <!-- </div> -->
+            <!-- </div>  -->
+            <div class="apply-orbis-row apply-ind-rows submit-parent">
+              <button
+                type="submit"
+                class="apply-submit-button"
+                (click)="onSubmit()"
+                [disabled]="!contactUsForm.valid"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="successFormSubmission" class="success-form-submission-parent-primary">
+          <div class="apply-orbis-row">
+            <div class="apply-orbis-item  success-form-submission-child-primary">
+              <img src="../../assets/svg/success.svg" class="successfull-form-notification" alt="Form submission successfull icon"/>
+            </div>
+            <div class="apply-orbis-item  success-form-submission-child-secondary">
+              <div (click)="contactFormVisible()">
+                <img src="../../assets/svg/close.svg" class="successfull-form-close" alt="Close icon"/>
+              </div>             
+            </div>
+          </div>
+          <div class="apply-orbis-row success-form-submission-parent-secondary">Your application has been 
+            successfully submitted</div>
+          <div class="apply-orbis-row success-form-submission-parent-thirds"><button class="ok-button" (click)="contactFormVisible()">Okay</button></div>
+          <div class="applu-orbis-row success-form-submission-parent-fourths">
+            <img src="../../assets/svg/success-man.svg" class="successsull-man-form" alt="Message successfull submission"/>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
